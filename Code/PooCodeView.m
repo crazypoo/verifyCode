@@ -11,53 +11,70 @@
 @implementation PooCodeView
 @synthesize changeArray = _changeArray;
 @synthesize changeString = _changeString;
-@synthesize codeLabel = _codeLabel;
+@synthesize numberOfCodes = _numberOfCodes;
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
+    
+    self.layer.cornerRadius = 5.0;
+    self.layer.masksToBounds = YES;
+    self.backgroundColor = [UIColor blueColor];
+
     if (self) {
-        // Initialization code
-        
-        self.layer.cornerRadius = 5.0;
-        self.layer.masksToBounds = YES;
-        self.backgroundColor = [UIColor blueColor];
-
-        [self change];
-
-        [self performSelector:@selector(timeChange) withObject:nil afterDelay:15];
-
+        NSMutableArray *datasource = [NSMutableArray array];
+        for (int index = 0; index < 10; index ++)
+        {
+            [datasource addObject:[NSString stringWithFormat:@"%d", index]];
+        }
+        for (char index = 'A'; index <= 'Z'; index ++)
+        {
+            [datasource addObject:[NSString stringWithFormat:@"%c", index]];
+        }
+        for (char index = 'a'; index <= 'z'; index ++)
+        {
+            [datasource addObject:[NSString stringWithFormat:@"%c", index]];
+        }
+        self.changeArray = [[NSArray alloc] initWithArray:datasource];
+        self.numberOfCodes = 4;
+        [self changeResultString];
     }
+    [self performSelector:@selector(timeChange) withObject:nil afterDelay:15];
+
     return self;
 }
 
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    [self change];
-    [self setNeedsDisplay];
-}
-
--(void)timeChange
+- (void)timeChange
 {
     [self performSelector:@selector(timeChange) withObject:nil afterDelay:15];
-    [self change];
+    [self changeResultString];
     [self setNeedsDisplay];
 }
 
-- (void)change
+- (void)changeResultString
 {
-    self.changeArray = [[NSArray alloc] initWithObjects:@"0",@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"A",@"B",@"C",@"D",@"E",@"F",@"G",@"H",@"I",@"J",@"K",@"L",@"M",@"N",@"O",@"P",@"Q",@"R",@"S",@"T",@"U",@"V",@"W",@"X",@"Y",@"Z",@"a",@"b",@"c",@"d",@"e",@"f",@"g",@"h",@"i",@"j",@"k",@"l",@"m",@"n",@"o",@"p",@"q",@"r",@"s",@"t",@"u",@"v",@"w",@"x",@"y",@"z",nil];
-    
-    NSMutableString *getStr = [[NSMutableString alloc] initWithCapacity:5];
-    
-    self.changeString = [[NSMutableString alloc] initWithCapacity:6];
-    for(NSInteger i = 0; i < 4; i++)
+    NSMutableString *tempString = [NSMutableString string];
+    for(NSInteger i = 0; i < self.numberOfCodes; i++)
     {
         NSInteger index = arc4random() % ([self.changeArray count] - 1);
-        getStr = [self.changeArray objectAtIndex:index];
         
-        self.changeString = (NSMutableString *)[self.changeString stringByAppendingString:getStr];
+        tempString = (NSMutableString *)[tempString stringByAppendingString:[self.changeArray objectAtIndex:index]];
     }
+    self.changeString= [[NSString alloc] initWithFormat:@"%@", tempString];
+}
+
+
+- (void)setNumberOfCodes:(NSUInteger)numberOfCodes
+{
+    _numberOfCodes = numberOfCodes;
+    [self changeResultString];
+    [self setNeedsDisplay];
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self changeResultString];
+    [self setNeedsDisplay];
 }
 
 - (void)drawRect:(CGRect)rect {

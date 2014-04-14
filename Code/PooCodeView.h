@@ -10,6 +10,7 @@
 
 @interface PooCodeView : UIView
 @property (nonatomic, retain) NSArray *changeArray;
-@property (nonatomic, retain) NSMutableString *changeString;
-@property (nonatomic, retain) UILabel *codeLabel;
+@property (nonatomic, retain) NSString *changeString;
+@property (nonatomic, assign) NSUInteger numberOfCodes;
+
 @end
