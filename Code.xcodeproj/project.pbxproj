@@ -22,6 +22,7 @@
 		CC4E522718FBB6420040DF84 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC4E520618FBB6420040DF84 /* UIKit.framework */; };
 		CC4E522F18FBB6420040DF84 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CC4E522D18FBB6420040DF84 /* InfoPlist.strings */; };
 		CC4E523118FBB6420040DF84 /* CodeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4E523018FBB6420040DF84 /* CodeTests.m */; };
+		CC4E523F18FBBC840040DF84 /* PooCodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4E523E18FBBC840040DF84 /* PooCodeView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,8 @@
 		CC4E522C18FBB6420040DF84 /* CodeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CodeTests-Info.plist"; sourceTree = "<group>"; };
 		CC4E522E18FBB6420040DF84 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CC4E523018FBB6420040DF84 /* CodeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CodeTests.m; sourceTree = "<group>"; };
+		CC4E523D18FBBC840040DF84 /* PooCodeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PooCodeView.h; sourceTree = "<group>"; };
+		CC4E523E18FBBC840040DF84 /* PooCodeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PooCodeView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +125,8 @@
 				CC4E521B18FBB6420040DF84 /* PooViewController.m */,
 				CC4E521D18FBB6420040DF84 /* Images.xcassets */,
 				CC4E520918FBB6420040DF84 /* Supporting Files */,
+				CC4E523D18FBBC840040DF84 /* PooCodeView.h */,
+				CC4E523E18FBBC840040DF84 /* PooCodeView.m */,
 			);
 			path = Code;
 			sourceTree = "<group>";
@@ -254,6 +259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC4E523F18FBBC840040DF84 /* PooCodeView.m in Sources */,
 				CC4E520F18FBB6420040DF84 /* main.m in Sources */,
 				CC4E521318FBB6420040DF84 /* PooAppDelegate.m in Sources */,
 				CC4E521C18FBB6420040DF84 /* PooViewController.m in Sources */,
@@ -394,6 +400,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Code/Code-Prefix.pch";
 				INFOPLIST_FILE = "Code/Code-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -407,6 +414,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Code/Code-Prefix.pch";
 				INFOPLIST_FILE = "Code/Code-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
