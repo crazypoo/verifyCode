@@ -21,7 +21,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    self.codeView = [[PooCodeView alloc] initWithFrame:CGRectMake(0, 20, self.view.frame.size.width, 40)];
+    self.codeView = [[PooCodeView alloc] initWithFrame:CGRectMake((self.view.frame.size.width - 100)/2, (self.view.frame.size.width - 100)/2, 100, 40)];
     [self.view addSubview:self.codeView];
     
     self.input = [[UITextField alloc] initWithFrame:CGRectMake(0, 200, self.view.frame.size.width, 40)];

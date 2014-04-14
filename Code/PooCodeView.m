@@ -24,11 +24,22 @@
         self.backgroundColor = [UIColor blueColor];
 
         [self change];
+
+        [self performSelector:@selector(timeChange) withObject:nil afterDelay:15];
+
     }
     return self;
 }
+
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    [self change];
+    [self setNeedsDisplay];
+}
+
+-(void)timeChange
+{
+    [self performSelector:@selector(timeChange) withObject:nil afterDelay:15];
     [self change];
     [self setNeedsDisplay];
 }
@@ -77,7 +88,7 @@
     
         CGContextRef context = UIGraphicsGetCurrentContext();
         CGContextSetLineWidth(context, 1.0);
-        for(int cout = 0; cout < 10; cout++)
+        for(int cout = 0; cout < 25; cout++)
         {
             red = arc4random() % 100 / 100.0;
             green = arc4random() % 100 / 100.0;
